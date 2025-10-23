@@ -2,7 +2,6 @@
 
 This repository is a trimmed Laravel application used for demonstrating an authentication flow (register, login, logout) implemented using a service layer, Form Requests and API Resources. It was used to drive tests and development exercises.
 
-Note: Tests exist in the workspace but are excluded from the packaged upload script. The script `publish.ps1` prepares a clean copy excluding test files.
 
 ## Clone & setup
 

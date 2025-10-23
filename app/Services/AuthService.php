@@ -9,12 +9,7 @@ use Illuminate\Validation\ValidationException;
 
 class AuthService
 {
-    /**
-     * Register a new user
-     *
-     * @param array $data
-     * @return array
-     */
+
     /**
      * Register a new user
      *
@@ -26,7 +21,7 @@ class AuthService
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => $data['password'],
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -37,27 +32,10 @@ class AuthService
         ];
     }
 
-    /**
-     * Register a new user with enhanced response
-     *
-     * @param array $data
-     * @return array
-     */
-    public function registerV2(array $data): array
+
+    public function getSum($first, $last)
     {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return [
-            'user' => new UserResource($user),
-            'token' => $token,
-            'token_type' => 'Bearer'
-        ];
+        return $first + $last;
     }
 
     /**
